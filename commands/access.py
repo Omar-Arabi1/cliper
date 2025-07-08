@@ -15,3 +15,9 @@ def access(label: str, latest: bool = False) -> None:
             click.echo(f"copied '{copied_text}' into your clipboard")
             return
         
+    for copied_text in clipboard_content:
+        data: dict = clipboard_content.get(copied_text)
+        if data.get('label') == label:
+            pyperclip.copy(copied_text)
+            click.echo(f"copied '{copied_text}' into your clipboard")
+            return
