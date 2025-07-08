@@ -1,10 +1,6 @@
 {
     "index": {
-        "priority": 3,
-        "label": "coole"
-    },
-    "last_copied_texts": {
-        "priority": 2,
-        "label": "fuck"
+        "label": "coole",
+        "priority": 3
     }
 }
