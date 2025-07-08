@@ -1,26 +1,18 @@
 {
-    "index": {
-        "label": "coole",
-        "priority": 3
-    },
-    "even cooler text": {
+    "good text": {
         "priority": 3,
-        "label": "cool-text"
+        "label": "good"
     },
     "cool text": {
-        "priority": 1,
-        "label": "cooler-text"
-    },
-    "best_match": {
         "priority": 2,
-        "label": "text"
+        "label": "cool"
     },
-    "https://pytutorial.com/": {
-        "priority": 1,
-        "label": "url"
+    "wow": {
+        "priority": 3,
+        "label": "w"
     },
-    "label_format: str = \"{:<15}\".format(label)": {
+    "lets gooo": {
         "priority": 1,
-        "label": "werid_text_frfr"
+        "label": "excited"
     }
 }
