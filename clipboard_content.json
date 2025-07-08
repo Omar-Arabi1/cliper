@@ -2,5 +2,13 @@
     "index": {
         "label": "coole",
         "priority": 3
+    },
+    "even cooler text": {
+        "priority": 3,
+        "label": "cool-text"
+    },
+    "cool text": {
+        "priority": 1,
+        "label": "cooler-text"
     }
 }

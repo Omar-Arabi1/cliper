@@ -4,11 +4,17 @@ import click
 from helpers import clipboad_context
 
 @click.command(help='remove a copied text')
-@click.option('-l', 'label', help='remove copied text with its label')
+@click.option('-l', '--label', help='remove copied text with its label')
 @click.option('-rp', '--remove-priority', help='remove all copied text with a certain level of priority', default=None)
-def remove(label: str, remove_priority: Optional[str]) -> None:
+@click.option('-a', '--all', help='remove all copied text at once', default=False, is_flag=True)
+def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
     clipboard_content: dict = clipboad_context.read_json()
     remove_from_clipboard_content: dict = {}
+    
+    if all is True:
+        clipboad_context.write_json(data_to_write={})
+        click.echo("removed all copied text")
+        return
     
     for copied_text in clipboard_content:
         data: dict = clipboard_content.get(copied_text)
