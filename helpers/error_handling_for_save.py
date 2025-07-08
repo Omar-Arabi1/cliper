@@ -5,8 +5,8 @@ def error_handling(label: str, priority: int, last_copied_text: str, labels: lis
         click.echo("A label is required use the '--label' or '-l' options, use '--help' for more info")
         return False
     
-    if priority <= 0:
-        click.echo("A priority can't be less than zero")
+    if priority <= 0 or priority > 3:
+        click.echo("A priority can't be less than zero or greater than three")
         return False
     
     if last_copied_text in last_copied_texts:
