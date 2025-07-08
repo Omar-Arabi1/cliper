@@ -1,18 +1,1 @@
-{
-    "good text": {
-        "priority": 3,
-        "label": "good"
-    },
-    "cool text": {
-        "priority": 2,
-        "label": "cool"
-    },
-    "wow": {
-        "priority": 3,
-        "label": "w"
-    },
-    "lets gooo": {
-        "priority": 1,
-        "label": "excited"
-    }
-}
+{}
