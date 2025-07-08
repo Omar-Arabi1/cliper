@@ -26,5 +26,3 @@ def search(query: str) -> None:
     for index, best_match in enumerate(best_matches):
         num_of_match: int = index + 1
         print(f"{num_of_match}) {best_match}")
-        
-        

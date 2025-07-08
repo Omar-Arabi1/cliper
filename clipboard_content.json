@@ -18,5 +18,9 @@
     "https://pytutorial.com/": {
         "priority": 1,
         "label": "url"
+    },
+    "label_format: str = \"{:<15}\".format(label)": {
+        "priority": 1,
+        "label": "werid_text_frfr"
     }
 }
