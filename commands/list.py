@@ -2,10 +2,12 @@ import click
 
 from helpers import clipboad_context
 from helpers.sort_highest_priority import sort_highest_priority
+from helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='list through all the saved copied texts you have')
 @click.option('-shp', '--sort-by-heighest-priority', help='print the list sorted from highest priority rank', default=False, is_flag=True)
 def list(sort_by_heighest_priority: bool) -> None:
+    check_if_empty()
     clipboard_contents: dict = clipboad_context.read_json()
     label_lengths: list[int] = []
     text_lengths: list[int] = []

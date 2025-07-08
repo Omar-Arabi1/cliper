@@ -1,3 +1,6 @@
 from .json import Json
+import getpass
 
-clipboad_context: Json = Json('/home/omar-arabi/repos/cliper/clipboard_content.json')
+user: str = getpass.getuser()
+clipboad_context: Json = Json(f'/home/{user}/.clipboard_contents.json')
+clipboad_context.create_data_file()

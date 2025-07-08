@@ -2,12 +2,14 @@ from typing import Optional
 import click
 
 from helpers import clipboad_context
+from helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='remove a copied text')
 @click.option('-l', '--label', help='remove copied text with its label')
 @click.option('-rp', '--remove-priority', help='remove all copied text with a certain level of priority', default=None)
 @click.option('-a', '--all', help='remove all copied text at once', default=False, is_flag=True)
 def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
+    check_if_empty()
     clipboard_content: dict = clipboad_context.read_json()
     remove_from_clipboard_content: dict = {}
     

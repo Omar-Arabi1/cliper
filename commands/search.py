@@ -1,11 +1,14 @@
 import click
 from fuzzywuzzy import process
+import sys
 
 from helpers import clipboad_context
+from helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='search through the labels you have')
 @click.argument('query')
 def search(query: str) -> None:
+    check_if_empty()
     clipboard_contents: dict = clipboad_context.read_json()
     labels: list[str] = []
     

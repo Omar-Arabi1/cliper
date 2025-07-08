@@ -2,11 +2,13 @@ import click
 import pyperclip
 
 from helpers import clipboad_context
+from helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='access the text that you copied')
 @click.option('--no-latest', help='get the latest one you entered', default=True, is_flag=True)
 @click.option('-l', '--label', help='get text with its label')
 def access(label: str, no_latest: bool = False) -> None:
+    check_if_empty()
     clipboard_content: dict = clipboad_context.read_json()
     
     if no_latest is True:
