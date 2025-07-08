@@ -10,5 +10,13 @@
     "cool text": {
         "priority": 1,
         "label": "cooler-text"
+    },
+    "best_match": {
+        "priority": 2,
+        "label": "text"
+    },
+    "https://pytutorial.com/": {
+        "priority": 1,
+        "label": "url"
     }
 }
