@@ -7,7 +7,7 @@ from helpers.error_handling_for_save import error_handling
 @click.command(help='save your last copied text')
 @click.option('-l', '--label', help='REQUIRED: enter a label for searching')
 @click.option('-p', '--priority', help='set a priority for this text highest 3 lowest 1', default=1)
-def save_last_copied(priority: int, label: Optional[str] = None) -> None:
+def save(priority: int, label: Optional[str] = None) -> None:
     clipboard_context_update: dict = clipboad_context.read_json()
     last_copied_text: str = pyperclip.paste()
     
