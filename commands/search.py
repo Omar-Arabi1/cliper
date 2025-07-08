@@ -1,6 +1,6 @@
 import click
 from fuzzywuzzy import process
-import sys
+from colorama import Fore
 
 from helpers import clipboad_context
 from helpers.check_clipboard_empty import check_if_empty
@@ -28,4 +28,4 @@ def search(query: str) -> None:
     
     for index, best_match in enumerate(best_matches):
         num_of_match: int = index + 1
-        print(f"{num_of_match}) {best_match}")
+        print(f"{Fore.CYAN + num_of_match}) {Fore.BLUE + best_match}")

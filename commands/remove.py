@@ -1,5 +1,6 @@
 from typing import Optional
 import click
+from colorama import Fore
 
 from helpers import clipboad_context
 from helpers.check_clipboard_empty import check_if_empty
@@ -15,13 +16,13 @@ def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
     
     if all is True:
         clipboad_context.write_json(data_to_write={})
-        click.echo("removed all copied text")
+        click.echo(Fore.GREEN + "removed all copied text")
         return
     
     for copied_text in clipboard_content:
         data: dict = clipboard_content.get(copied_text)
         if data.get('label') == label:
-            click.echo(f"removed copied text at label '{label}'")
+            click.echo(Fore.GREEN + f"removed copied text at label '{label}'")
             clipboard_content.pop(copied_text)
             clipboad_context.write_json(data_to_write=clipboard_content)
             return
@@ -36,4 +37,4 @@ def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
                 })
                 clipboad_context.write_json(data_to_write=remove_from_clipboard_content)
             else:
-                click.echo(f'removed {copied_text}')
+                click.echo(Fore.GREEN + f'removed {copied_text}')

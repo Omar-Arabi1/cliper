@@ -1,4 +1,5 @@
 import click
+from colorama import Fore
 
 from helpers import clipboad_context
 from helpers.sort_highest_priority import sort_highest_priority
@@ -27,11 +28,11 @@ def list(sort_by_heighest_priority: bool) -> None:
             data: dict = clipboard_contents.get(copied_text)
             label: str = data.get('label')
             prioirty: str = str(data.get('priority'))
-            print(f"{label.ljust(label_padding)}) {copied_text.ljust(text_padding)} -prioirty {prioirty}")
+            print(f"{Fore.GREEN + label.ljust(label_padding)}) {Fore.CYAN + copied_text.ljust(text_padding)} -prioirty {Fore.RED + prioirty}")
     
     if sort_by_heighest_priority is False: 
         for copied_text in clipboard_contents:
             data: dict = clipboard_contents.get(copied_text)
             label: str = data.get('label')
             prioirty: str = str(data.get('priority'))
-            print(f"{label.ljust(label_padding)}) {copied_text.ljust(text_padding)} -prioirty {prioirty}")
+            print(f"{Fore.GREEN + label.ljust(label_padding)}) {Fore.CYAN + copied_text.ljust(text_padding)} -prioirty {Fore.RED + prioirty}")

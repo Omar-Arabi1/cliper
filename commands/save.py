@@ -1,6 +1,8 @@
 import click
 import pyperclip
 from typing import Optional
+from colorama import Fore
+
 from helpers import clipboad_context
 from helpers.error_handling_for_save import error_handling
 
@@ -25,4 +27,4 @@ def save(priority: int, label: Optional[str] = None) -> None:
     })
     
     clipboad_context.write_json(data_to_write=clipboard_content)
-    click.echo(f'saved item')
+    click.echo(Fore.GREEN + 'saved item')
