@@ -26,7 +26,7 @@ much as I did thanks for copying, downloading the tool or even checking this rep
 - [list command](#list-command)
 - [search command](#search-command)
 - [access command](#access-command)
-- [setting up](#setting_up)
+- [setting up](#setting-up)
 
 ---
 
