@@ -129,6 +129,7 @@ in case there is no output you probably entered something wrong like a label nam
 to install this application follow these steps 
 
 ***NOTE:*** *this app is only available on linux and macOS not uon windows so if you are on windows GET OUT*
+
 ***NOTE:*** *this app requires you to have python installed on your system*
 
 - clone the repo
