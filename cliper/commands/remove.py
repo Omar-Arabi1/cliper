@@ -7,7 +7,7 @@ from cliper.helpers.check_clipboard_empty import check_if_empty
 
 """
 with this command you could remove one of the copied snippets that you have of course you will use it with the 
-'--label' option or '-l' for short and enter tha label 
+'--label' option or '-l' for short and enter that label 
 
 note that the label is case sensitive and expects you to type it exactly the same as you saved it so its recommended
 to save the snippets with short labels to them

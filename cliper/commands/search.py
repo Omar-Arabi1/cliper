@@ -45,4 +45,4 @@ def search(query: str) -> None:
     
     for index, best_match in enumerate(best_matches):
         num_of_match: int = index + 1
-        print(f"{Fore.CYAN + num_of_match}) {Fore.BLUE + best_match}")
+        print(f"{Fore.CYAN + str(num_of_match)}) {Fore.BLUE + best_match}")
