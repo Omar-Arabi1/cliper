@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
+
 import click
 
-from commands import save, remove, list, search, access
+from cliper.commands import save, remove, list, search, access
 
 @click.group(help="a CLI tool to save your clipboard history")
 def main() -> None:

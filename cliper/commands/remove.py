@@ -2,8 +2,8 @@ from typing import Optional
 import click
 from colorama import Fore
 
-from helpers import clipboad_context
-from helpers.check_clipboard_empty import check_if_empty
+from cliper.helpers import clipboad_context
+from cliper.helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='remove a copied text')
 @click.option('-l', '--label', help='remove copied text with its label')

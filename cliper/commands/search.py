@@ -2,8 +2,8 @@ import click
 from fuzzywuzzy import process
 from colorama import Fore
 
-from helpers import clipboad_context
-from helpers.check_clipboard_empty import check_if_empty
+from cliper.helpers import clipboad_context
+from cliper.helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='search through the labels you have')
 @click.argument('query')

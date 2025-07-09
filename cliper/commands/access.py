@@ -2,8 +2,8 @@ import click
 import pyperclip
 from colorama import Fore
 
-from helpers import clipboad_context
-from helpers.check_clipboard_empty import check_if_empty
+from cliper.helpers import clipboad_context
+from cliper.helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='access the text that you copied')
 @click.option('--no-latest', help='get the latest one you entered', default=True, is_flag=True)

@@ -1,9 +1,9 @@
 import click
 from colorama import Fore
 
-from helpers import clipboad_context
-from helpers.sort_highest_priority import sort_highest_priority
-from helpers.check_clipboard_empty import check_if_empty
+from cliper.helpers import clipboad_context
+from cliper.helpers.sort_highest_priority import sort_highest_priority
+from cliper.helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='list through all the saved copied texts you have')
 @click.option('-shp', '--sort-by-heighest-priority', help='print the list sorted from highest priority rank', default=False, is_flag=True)

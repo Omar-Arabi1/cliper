@@ -3,8 +3,8 @@ import pyperclip
 from typing import Optional
 from colorama import Fore
 
-from helpers import clipboad_context
-from helpers.error_handling_for_save import error_handling
+from cliper.helpers import clipboad_context
+from cliper.helpers.error_handling_for_save import error_handling
 
 @click.command(help='save your last copied text')
 @click.option('-l', '--label', help='REQUIRED: enter a label for searching')
