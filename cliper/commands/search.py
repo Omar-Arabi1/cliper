@@ -5,6 +5,23 @@ from colorama import Fore
 from cliper.helpers import clipboad_context
 from cliper.helpers.check_clipboard_empty import check_if_empty
 
+"""
+with this command you could search all of your labels, but you don't need to enter their names exactly
+since this is a fuzzy search basically you could enter a part of the label and it will give you the best matches
+
+example:
+./cliper.pyz search cl
+1) clock
+2) clack 
+
+of course that just means that in the list you have there is a clock and a clack and maybe more, but they just didn't get
+included because they didn't pass the 80% accuracy limit set you could then access them or remove them with using the label
+that matched the label in mind 
+
+note that I didn't implement this fuzzy finding algorithm on my own I used a package named fuzzywuzzy and it did most of the 
+hardwork I just filtered out the the matches that were past 80% on accuracy
+"""
+
 @click.command(help='search through the labels you have')
 @click.argument('query')
 def search(query: str) -> None:

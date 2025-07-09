@@ -5,6 +5,18 @@ from colorama import Fore
 from cliper.helpers import clipboad_context
 from cliper.helpers.check_clipboard_empty import check_if_empty
 
+"""
+with this command you could remove one of the copied snippets that you have of course you will use it with the 
+'--label' option or '-l' for short and enter tha label 
+
+note that the label is case sensitive and expects you to type it exactly the same as you saved it so its recommended
+to save the snippets with short labels to them
+
+this command also takes two options '--all' or '-a' for short which will remove all the snippets at once 
+and '--remove-priority' or '-rp' for short with this you provide a priority and it will remove all occurances of that 
+priority in a snippet you saved 
+"""
+
 @click.command(help='remove a copied text')
 @click.option('-l', '--label', help='remove copied text with its label')
 @click.option('-rp', '--remove-priority', help='remove all copied text with a certain level of priority', default=None)

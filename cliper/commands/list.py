@@ -5,6 +5,16 @@ from cliper.helpers import clipboad_context
 from cliper.helpers.sort_highest_priority import sort_highest_priority
 from cliper.helpers.check_clipboard_empty import check_if_empty
 
+"""
+with this command you will get a table-like format with all the data it will start with the label text 
+and then the priority by default it will print them with the order at which they are saved at in the json file
+you could use the '--sort-by-heighest-priority' option or '-shp' for short to sort them by the priorities value
+the highest first of course
+
+note that there is no function in python that sorts based on a value in a dictionary and then sorts the dictionary's keys
+themselves so in helpers/sort_highest_priority.py file there is a way that I managed to get it for more info go to that file
+"""
+
 @click.command(help='list through all the saved copied texts you have')
 @click.option('-shp', '--sort-by-heighest-priority', help='print the list sorted from highest priority rank', default=False, is_flag=True)
 def list(sort_by_heighest_priority: bool) -> None:
