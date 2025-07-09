@@ -8,6 +8,6 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts':
-            ['cliper.main:main = cliper.main:main']
+            ['cliper = cliper.main:main']
     }
 )

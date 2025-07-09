@@ -2,9 +2,12 @@
 
 import click
 
+from . import __version__
 from cliper.commands import save, remove, list, search, access
 
+prog_name: str = 'cliper'
 @click.group(help="a CLI tool to save your clipboard history")
+@click.version_option(__version__, prog_name=prog_name, message=f'{prog_name} v{__version__}')
 def main() -> None:
     pass
 
