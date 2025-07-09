@@ -21,11 +21,11 @@ much as I did thanks for copying, downloading the tool or even checking this rep
 ---
 
 ## table of contents:
-- [save command](#save)
-- [remove command](#remove)
-- [list command](#list)
-- [search command](#search)
-- [access command](#access)
+- [save command](#save-command)
+- [remove command](#remove-command)
+- [list command](#list-command)
+- [search command](#search-command)
+- [access command](#access-command)
 - [setting up](#setting_up)
 
 ---
@@ -122,3 +122,26 @@ it fully and correctly so its recommended to add short labels you could always s
 list all of them with the 'list' command
 
 in case there is no output you probably entered something wrong like a label name that doesn't exist
+
+---
+
+## setting up
+to install this application follow these steps 
+
+***NOTE:*** *this app is only available on linux and macOS not uon windows so if you are on windows GET OUT*
+***NOTE:*** *this app requires you to have python installed on your system*
+
+- clone the repo
+- create a virtual environment with `python3 -m venv .venv` and source it `source .venv/bin/activate`
+- install the requirements with `pip install requirements.txt` or if that doesn't work try `pip3 install requirements.txt`
+- run this command `shiv -c cliper -o cliper.pyz -r requirements.txt .` make sure you are in the repo directory and you are in the virtual environment
+- now you have a .pyz binary make it executable `chmod +x cliper.pyz` if you want to if not use it with `./cliper.pyz` or `python3 cliper.pyz`
+
+you now technically have the app, but if you want it to be used globally follow this to add it to path:
+- move the executable into /usr/local/bin directory with `sudo mv /path/to/executable /usr/local/bin` 
+- add it to path both commands work on both zsh and bash shells —so add it with `export PATH=$PATH:/usr/local/bin/cliper.pyz` and then source the file
+
+---
+
+## CONGRATULATIONS 
+you now officialy have installed the app have fun
