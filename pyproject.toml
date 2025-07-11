@@ -1,0 +1,17 @@
+[project]
+name = "cliper"
+version = "1.0.0"
+description = "a clipboard manager tool to save important things with labels"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.2.1,<9",
+    "colorama>=0.4.6,<1",
+    "fuzzywuzzy>=0.18.0,<1",
+    "pyperclip>=1.9.0,<2",
+    "python-levenshtein>=0.27.1,<1",
+    "shiv>=1.0.8,<2",
+]
+
+[project.scripts]
+cliper = "src.cliper.__main__:main"
