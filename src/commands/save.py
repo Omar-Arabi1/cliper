@@ -6,18 +6,6 @@ from colorama import Fore
 from helpers import clipboad_context
 from helpers.error_handling_for_save import error_handling
 
-"""
-with the save command you can save the last thing in your clipboard history so the last thing you copied will be saved
-it takes a required '--label' option to set its label its neccessary because you search, access, remove with the label 
-I recommend using short labels to remember them if needed 
-
-it also takes in an optional '--priority' option or '-p' for short it takes in a number to represent its importance 
-from 1 min to 3 max anything lower or higher won't be accepted if you don't enter a priority it will opt to 1 by default
-
-note that this command has the most error handling of the bunch here you only see 'error_handling' functioin being called 
-for more detail on that function go to helpers/error_handling_for_save.py
-"""
-
 @click.command(help='save your last copied text')
 @click.option('-l', '--label', help='REQUIRED: enter a label for searching')
 @click.option('-p', '--priority', help='set a priority for this text highest 3 lowest 1', default=1)

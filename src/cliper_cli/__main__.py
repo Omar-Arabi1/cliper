@@ -3,7 +3,7 @@
 import click
 
 from . import __version__
-from commands import save, remove, list, search, access
+from commands import save, remove, list_contents, search, access
 
 prog_name: str = 'cliper'
 @click.group(help="a CLI tool to save your clipboard history")
@@ -13,7 +13,7 @@ def main() -> None:
 
 main.add_command(save.save)
 main.add_command(remove.remove)
-main.add_command(list.list)
+main.add_command(list_contents.list_contents)
 main.add_command(search.search)
 main.add_command(access.access)
 
