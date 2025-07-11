@@ -5,6 +5,7 @@ import sys
 
 from helpers import clipboad_context
 from helpers.check_clipboard_empty import check_if_empty
+from helpers.clipboard_contents_model import ClipBoardContents
 
 @click.command(help='remove a copied text')
 @click.option('-l', '--label', help='remove copied text with its label')
@@ -13,13 +14,13 @@ from helpers.check_clipboard_empty import check_if_empty
 def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
     check_if_empty()
     clipboard_content: dict = clipboad_context.read_json()
-    remove_from_clipboard_content: dict = {}
-    
+    not_removed_from_clipboard: dict = {}
+
     if all is True:
         clipboad_context.write_json(data_to_write={})
         click.echo(Fore.GREEN + "removed all copied text")
         sys.exit()
-    
+
     for copied_text in clipboard_content:
         data: dict = clipboard_content.get(copied_text)
         if data.get('label') == label:
@@ -30,12 +31,12 @@ def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
         if not remove_priority is None:
             remove_priority_as_num: int = int(remove_priority)
             if data.get('priority') != remove_priority_as_num:
-                remove_from_clipboard_content.update({
-                    copied_text:{
-                        'label': data.get('label'), 
-                        'priority': data.get('priority')
-                    }
-                })
-                clipboad_context.write_json(data_to_write=remove_from_clipboard_content)
+                new_clipbaord_item: ClipBoardContents = ClipBoardContents(
+                    clipboard_content=copied_text,
+                    label=data.get('label'),
+                    priority=data.get('priority')
+                )
+                not_removed_from_clipboard.update(new_clipbaord_item)
+                clipboad_context.write_json(data_to_write=not_removed_from_clipboard)
             else:
                 click.echo(Fore.GREEN + f'removed {copied_text}')
