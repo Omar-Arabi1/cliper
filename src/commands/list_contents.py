@@ -1,6 +1,7 @@
 from colorama import Fore
 import click
 from typing import Optional
+import sys
 
 from helpers import clipboad_context
 from helpers.sort import sort
@@ -15,7 +16,7 @@ def list_contents(sort_by: Optional[str]) -> None:
 
     if sort_by is None:
         show_clipboard_contents(clipboard_contents=clipboard_contents)
-        return
+        sys.exit()
     
     if sort_by.lower() == 'highest':
         clipboard_contents_sorted: dict = sort(highest=True)
@@ -23,5 +24,5 @@ def list_contents(sort_by: Optional[str]) -> None:
         clipboard_contents_sorted: dict = sort(highest=False)
     else:
         click.echo(Fore.RED + "Invalid option, you could put 'highest' or 'lowest' only")
-        return
+        sys.exit()
     show_clipboard_contents(clipboard_contents=clipboard_contents_sorted)

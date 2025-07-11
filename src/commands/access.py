@@ -2,6 +2,7 @@ import click
 import pyperclip
 from colorama import Fore
 from typing import Optional
+import sys
 
 from helpers import clipboad_context
 from helpers.check_clipboard_empty import check_if_empty
@@ -16,11 +17,11 @@ def access(label: Optional[str] = None) -> None:
         for copied_text in reversed(clipboard_content):
             pyperclip.copy(copied_text)
             click.echo(Fore.GREEN + f"copied '{copied_text}' into your clipboard")
-            return
+            sys.exit()
     
     for copied_text in clipboard_content:
         data: dict = clipboard_content.get(copied_text)
         if data.get('label') == label:
             pyperclip.copy(copied_text)
             click.echo(Fore.GREEN + f"copied '{copied_text}' into your clipboard")
-            return
+            sys.exit()
