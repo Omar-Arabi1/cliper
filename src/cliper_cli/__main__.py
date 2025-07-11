@@ -2,9 +2,7 @@
 
 import click
 
-__version__ = "1.0.0"
-
-# from . import __version__
+from . import __version__
 from commands import save, remove, list, search, access
 
 prog_name: str = 'cliper'
