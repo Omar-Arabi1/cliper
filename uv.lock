@@ -25,6 +25,7 @@ dependencies = [
     { name = "pyperclip" },
     { name = "python-levenshtein" },
     { name = "shiv" },
+    { name = "tabulate" },
 ]
 
 [package.metadata]
@@ -35,6 +36,7 @@ requires-dist = [
     { name = "pyperclip", specifier = ">=1.9.0,<2" },
     { name = "python-levenshtein", specifier = ">=0.27.1,<1" },
     { name = "shiv", specifier = ">=1.0.8,<2" },
+    { name = "tabulate", specifier = ">=0.9.0" },
 ]
 
 [[package]]
@@ -152,4 +154,13 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/06/85/004e7123b4821c64be6d9bfed27f63147b4dde929a1cd848f137befeada4/shiv-1.0.8.tar.gz", hash = "sha256:2a68d69e98ce81cb5b8fdafbfc1e27efa93e6d89ca14bfae33482e4176f561d6", size = 32806, upload-time = "2024-11-01T19:47:46.189Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e7/ec/afbb46f7c1ab071a50d92424daf149420ca1f0e02dc51239485747151d6c/shiv-1.0.8-py2.py3-none-any.whl", hash = "sha256:a60e4b05a2d2f8b820d567b1d89ee59af731759771c32c282d03c4ceae6aba24", size = 20516, upload-time = "2024-11-01T19:47:45.061Z" },
+]
+
+[[package]]
+name = "tabulate"
+version = "0.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz", hash = "sha256:0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c", size = 81090, upload-time = "2022-10-06T17:21:48.54Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/40/44/4a5f08c96eb108af5cb50b41f76142f0afa346dfa99d5296fe7202a11854/tabulate-0.9.0-py3-none-any.whl", hash = "sha256:024ca478df22e9340661486f85298cff5f6dcdba14f3813e8830015b9ed1948f", size = 35252, upload-time = "2022-10-06T17:21:44.262Z" },
 ]
