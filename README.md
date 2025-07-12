@@ -17,7 +17,7 @@ and of course the basic features of saving, removing, listing and accessing your
   - [access command](#access-command)
   - [remove command](#remove-command)
   - [search command](#search-command)
-- [installation and setting up]
+- [installation and setting up](#installation-and-setting-up)
   - [install.sh](#install.sh)
   - [manual installation](#manual-installation)
 
