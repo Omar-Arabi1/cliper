@@ -10,6 +10,19 @@ from helpers.check_clipboard_empty import check_if_empty
 @click.command(help='access the text that you copied')
 @click.option('-l', '--label', help='get text with its label', default=None)
 def access(label: Optional[str] = None) -> None:
+    """
+    this command is used when the user wants to access something they saved in the clipboard
+    by default it accesses the latest given thing that action could be overwritten by providing
+    your own label with `-l`
+    
+    PARAMS: label: Optional[str] = if you want to override the default behavior of what gets retrieved by something known you could provide its label
+    
+    EXAMPLE:
+        >>> cliper access -l <label>
+        output -> copied '<text>' into your clipboard"
+    
+    NOTE: if no output was given that means the label doesn't exist
+    """
     check_if_empty()
     clipboard_content: dict = clipboad_context.read_json()
     

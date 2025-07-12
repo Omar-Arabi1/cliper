@@ -11,6 +11,22 @@ from helpers.check_clipboard_empty import check_if_empty
 @click.option('-rp', '--remove-priority', help='remove all copied text with a certain level of priority', default=None)
 @click.option('-a', '--all', help='remove all copied text at once', default=False, is_flag=True)
 def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
+    """
+    use this command to remove something from the clipboard it takes in a label option
+    to remove a specific label a remove-priority option which removes everything that has
+    the same provided priority (must be at least 1 and at most 3) or all option which removes
+    everything 
+    
+    at least on of these must be included for the function to take effect
+    
+    PARAMS: label: str = a label to remove
+    PARAMS: remove_priority: Optional[str] = if you want to remove all occurences of the same priority (it is a string because by default the entered type is)
+    PARAMS: all: bool = determines wether or not to remove the entire list
+    
+    EXAMPLE:
+        >>> click remove -a
+        output -> removed all copied text
+    """
     check_if_empty()
     clipboard_content: dict = clipboad_context.read_json()
 
