@@ -5,7 +5,6 @@ import sys
 
 from helpers import clipboad_context
 from helpers.check_clipboard_empty import check_if_empty
-from helpers.clipboard_contents_model import ClipBoardContents
 
 @click.command(help='remove a copied text')
 @click.option('-l', '--label', help='remove copied text with its label')
