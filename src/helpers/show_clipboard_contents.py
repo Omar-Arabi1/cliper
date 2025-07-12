@@ -9,7 +9,7 @@ def show_clipboard_contents(clipboard_contents: dict) -> None:
         data: dict = clipboard_contents.get(content)
         label: str = data.get('label')
         priority: str = str(data.get('priority'))
-        creation_date: str = data.get('creator_date')
+        creation_date: str = data.get('creation_date')
         rows.append([creation_date, label, content, priority])
     
     table: list[list] = [row for row in rows]

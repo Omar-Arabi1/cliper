@@ -9,20 +9,32 @@ from helpers.check_clipboard_empty import check_if_empty
 from helpers.show_clipboard_contents import show_clipboard_contents
 
 @click.command(help='list through all the saved copied texts you have')
-@click.option('-s', '--sort-by', help='print the table sorted starting from highest priority or lowest takes in highest/lowest', default=None)
-def list_contents(sort_by: Optional[str]) -> None:
+@click.option('-P', '--priority', help="it takes in highest/lowest to sort by priority", default=None)
+@click.option('-D', '--date', help="it takes in oldest/newest to sort by date", default=None)
+def list_contents(priority: Optional[str], date: Optional[str]) -> None:
     check_if_empty()
     clipboard_contents: dict = clipboad_context.read_json()
 
-    if sort_by is None:
+    if priority is None and date is None:
         show_clipboard_contents(clipboard_contents=clipboard_contents)
         sys.exit()
-    
-    if sort_by.lower() == 'highest':
-        clipboard_contents_sorted: dict = sort(highest=True)
-    elif sort_by.lower() == 'lowest':
-        clipboard_contents_sorted: dict = sort(highest=False)
-    else:
-        click.echo(Fore.RED + "Invalid option, you could put 'highest' or 'lowest' only")
-        sys.exit()
+
+    if priority is not None:
+        if priority.lower() == 'highest':
+            clipboard_contents_sorted: dict = sort(highest=True, newest=False, sort_by_priority=True)
+        elif priority.lower() == 'lowest':
+            clipboard_contents_sorted: dict = sort(highest=False, newest=False, sort_by_priority=True)
+        else:
+            click.echo(Fore.RED + "Invalid option, you could put 'highest' or 'lowest' only")
+            sys.exit()
+
+    if date is not None:
+        if date.lower() == 'oldest':
+            clipboard_contents_sorted: dict = sort(highest=False, newest=False, sort_by_priority=False)
+        elif date.lower() == 'newest':
+            clipboard_contents_sorted: dict = sort(highest=False, newest=True, sort_by_priority=False)
+        else:
+            click.echo(Fore.RED + "Invalid option, you could put 'oldest' or 'newest' only")
+            sys.exit()
+
     show_clipboard_contents(clipboard_contents=clipboard_contents_sorted)

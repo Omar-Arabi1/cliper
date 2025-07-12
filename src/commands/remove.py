@@ -34,7 +34,8 @@ def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
                 new_clipbaord_item: ClipBoardContents = ClipBoardContents(
                     clipboard_content=copied_text,
                     label=data.get('label'),
-                    priority=data.get('priority')
+                    priority=data.get('priority'),
+                    creation_date=data.get('creation_date')
                 )
                 not_removed_from_clipboard.update(new_clipbaord_item)
                 clipboad_context.write_json(data_to_write=not_removed_from_clipboard)

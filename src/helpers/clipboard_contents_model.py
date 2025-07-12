@@ -10,6 +10,6 @@ class ClipBoardContents():
             self.clipboard_content: {
                 'label': self.label,
                 'priority': self.priority,
-                'creator_date': self.creation_date
+                'creation_date': self.creation_date
             }
         }
