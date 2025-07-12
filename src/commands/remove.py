@@ -29,7 +29,7 @@ def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
             sys.exit()
 
     if remove_priority is not None:
-        stuff = filter(lambda data: data[1].get('priority') != int(remove_priority), clipboard_content.items())
-        not_removed_from_clipboard: dict = dict([thing for thing in stuff])
+        not_removed_sequences = filter(lambda data: data[1].get('priority') != int(remove_priority), clipboard_content.items())
+        not_removed_from_clipboard: dict = dict([not_removed for not_removed in not_removed_sequences])
         clipboad_context.write_json(data_to_write=not_removed_from_clipboard)
         click.echo(Fore.GREEN + f'removed all sequences that contain {remove_priority} as a priority')
