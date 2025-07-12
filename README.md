@@ -75,13 +75,47 @@ back to your clipboard you could override this action by providing a label with 
   an example on how it could be used:
   
   `>>> cliper list-contents --priority highest`
+
+### access command:
+  you use this command to access something you saved in your clipboard, by default it will put the last thing you added
+  to the clipboard back to your actual clipboard, but you could override this action by providing it a label with the
+  `--label` option and providing the exact name of the label
   
-  output ->
+  if the label provided doesn't exist no output will be given
   
-  `creation date    label    contents      priority
-    ---------------  -------  ----------  ----------
-    2025-07-13       test     <test1>              3
-    2025-07-13       test2    <test2>              2`
+  an example on how it could be used:
   
-  ***NOTE:*** *I do not encourage to save the labels a  the content that will be saved this was just a test*
+  `>>> cliper access --label <label>`
+
+### remove command:
+  you use this command to remove something from your clipboard it takes in one of the three
+  
+  - `--all` option to remove everything at once
+  - `--label` option to remove an item on the given label
+  - `--remove-priority` to remove all items that have the same priority level you give
+  
+  you can't use all of these options at once 
+  
+  if you enter a label or piroity that doesn't exist the command will give no output 
+  
+  the same could be said if you enter something incorrectly
+  
+  an example on how it could be used:
+  
+  `>>> cliper remove --all`
+
+### search command:
+  you use this command to fuzzy search the labels in your clipboard you could enter a part of the
+  label and it will give you the most close takes
+  
+  it takes in a required query which it will search with if it doesn't find anything with the accuracy
+  higher or equal to 80% it will give no output
+  
+  the lowest accuracy it could provide is 80% it doesn't provide any other metadata on what this label
+  has saved or its creation date just the label itself
+  
+  it takes in an optional `--filter` option it allows you to filter the results on a certain date
+  the date that will be given will be the creation date which you could see when listing your clipboard
+  you have to provide it exactly how it is and in the same format Y-M-D if it doesn't find anything with
+  that creation date it will give no output
 
