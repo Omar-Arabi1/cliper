@@ -1,3 +1,4 @@
+from typing import Optional
 import click
 from fuzzywuzzy import process
 from colorama import Fore
@@ -6,26 +7,31 @@ from helpers import clipboad_context
 from helpers.check_clipboard_empty import check_if_empty
 
 @click.command(help='search through the labels you have')
+@click.option('-f', '--filter', help='filter results by date for more accurate results takes in a date Y-M-D', default=None)
 @click.argument('query')
-def search(query: str) -> None:
+def search(query: str, filter: Optional[str]) -> None:
     check_if_empty()
     clipboard_contents: dict = clipboad_context.read_json()
     labels: list[str] = []
-    
+    best_matches: list[str] = []
+
     for copied_text in clipboard_contents:
         data: dict = clipboard_contents.get(copied_text)
-        labels.append(data.get('label'))
-    
+        creation_date = data.get('creation_date')
+
+        if filter is not None and creation_date == filter:
+            labels.append(data.get('label'))
+        elif filter is None:
+            labels.append(data.get('label'))
+
     matches: list[tuple] = process.extract(query, labels)
-    best_matches: list[str] = []
-    
-    for index in range(len(matches)):
-        match_data: tuple = matches[index]
+
+    for index, _ in enumerate(matches):
+        match_data = matches[index]
         accuracy: int = match_data[1]
         if accuracy >= 80:
             match: str = match_data[0]
             best_matches.append(match)
-    
-    for index, best_match in enumerate(best_matches):
-        num_of_match: int = index + 1
-        print(f"{Fore.CYAN + str(num_of_match)}) {Fore.BLUE + best_match}")
+
+    for best_match in best_matches:
+        print(Fore.GREEN + best_match)
