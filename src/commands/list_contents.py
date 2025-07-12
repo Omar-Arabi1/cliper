@@ -9,8 +9,8 @@ from helpers.check_clipboard_empty import check_if_empty
 from helpers.show_clipboard_contents import show_clipboard_contents
 
 @click.command(help='list through all the saved copied texts you have')
-@click.option('-P', '--priority', help="it takes in highest/lowest to sort by priority", default=None)
-@click.option('-D', '--date', help="it takes in oldest/newest to sort by date", default=None)
+@click.option('-p', '--priority', help="it takes in highest/lowest to sort by priority", default=None)
+@click.option('-d', '--date', help="it takes in oldest/newest to sort by date", default=None)
 def list_contents(priority: Optional[str], date: Optional[str]) -> None:
     check_if_empty()
     clipboard_contents: dict = clipboad_context.read_json()
