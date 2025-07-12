@@ -10,6 +10,20 @@ from helpers.check_clipboard_empty import check_if_empty
 @click.option('-f', '--filter', help='filter results by date for more accurate results takes in a date Y-M-D', default=None)
 @click.argument('query')
 def search(query: str, filter: Optional[str]) -> None:
+    """
+    users could use this command to search for a certain label to access it, delete it, etc it takes in a required 
+    query to search with and an optional filter option which takes in the date at it was created to search only
+    for items that were created at that date
+    
+    it fuzzy searches through the list and shows only the results with accuracy above 80%
+    
+    PARAMS: query: str = the query to search with
+    PARAMS: filter: Optional[str] = takes in a date Y-M-D and only searches in the items that were created at this date
+    
+    EXAMPLE:
+        >>> cliper search <query> -f <date>
+        output -> <result-list>
+    """
     check_if_empty()
     clipboard_contents: dict = clipboad_context.read_json()
     labels: list[str] = []
