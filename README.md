@@ -20,6 +20,7 @@ and of course the basic features of saving, removing, listing and accessing your
 - [installation and setting up](#installation-and-setting-up)
   - [install.sh](#install.sh)
   - [manual installation](#manual-installation)
+- [notes](#notes)
 
 ## general use
 the main way to use this application is to save the last thing in your clipboard history and add a label to it
@@ -40,7 +41,7 @@ back to your clipboard you could override this action by providing a label with 
 
 ## commands
 ### save command:
-  you use this command to save the last thing in your clipboard to the list it takes in a required label
+  you use this command to save the last thing in your clipboard to the clipboard it takes in a required label
   with the `--label` option and an optional priority with the `--priority` option
   
   the label will be used for all the actions of the application like searching, accessing or removing 
@@ -52,7 +53,30 @@ back to your clipboard you could override this action by providing a label with 
   the program also automatically saves a creation_date which will allow you to sort the listing or to filter
   the search results by providing it
   
-  the program doesn't accept duplicate text or label
+  the program doesn't accept duplicate text or labels
+  
+  an example on how it could be used:
+    `>>> cliper save --label <label> --priority <priority>`
 
 ### list-contents command:
+  you use this command to list all the contents of the application by default it lists the contents at the order
+  they are saved at in the clipboard
   
+  you could override this action by providing a way to sort them you have two options for that the
+  
+  - `--date` option to sort by date it takes in only oldest or newest
+  - `--priority` option to sort by priority it takes in only highest or lowest
+  
+  you can't enter both if you do enter both the one that was entered first will be the one to execute
+  
+  the data will be printed in a table format
+  
+  an example on how it could be used:
+    `>>> cliper list-contents --priority highest`
+    output -> `creation date    label    contents      priority
+               ---------------  -------  ----------  ----------
+               2025-07-13       test     <test1>              3
+               2025-07-13       test2    <test2>              2`
+  
+  ***NOTE:*** *I do not encourage to save the labels a  the content that will be saved this was just a test*
+
