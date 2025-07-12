@@ -108,7 +108,7 @@ back to your clipboard you could override this action by providing a label with 
   you use this command to fuzzy search the labels in your clipboard you could enter a part of the
   label and it will give you the most close takes
   
-  it takes in a required query which it will search with if it doesn't find anything with the accuracy
+  it takes in a required query argument which it will search with if it doesn't find anything with the accuracy
   higher or equal to 80% it will give no output
   
   the lowest accuracy it could provide is 80% it doesn't provide any other metadata on what this label
@@ -116,6 +116,11 @@ back to your clipboard you could override this action by providing a label with 
   
   it takes in an optional `--filter` option it allows you to filter the results on a certain date
   the date that will be given will be the creation date which you could see when listing your clipboard
-  you have to provide it exactly how it is and in the same format Y-M-D if it doesn't find anything with
+  you have to provide it exactly how it is and in the same format **Y-M-D** if it doesn't find anything with
   that creation date it will give no output
+  
+  an example on how it could be used:
+  
+  `>>> cliper search gee --filter Y-M-D`
+
 
