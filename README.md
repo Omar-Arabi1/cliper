@@ -56,7 +56,8 @@ back to your clipboard you could override this action by providing a label with 
   the program doesn't accept duplicate text or labels
   
   an example on how it could be used:
-    `>>> cliper save --label <label> --priority <priority>`
+
+  `>>> cliper save --label <label> --priority <priority>`
 
 ### list-contents command:
   you use this command to list all the contents of the application by default it lists the contents at the order
@@ -72,11 +73,15 @@ back to your clipboard you could override this action by providing a label with 
   the data will be printed in a table format
   
   an example on how it could be used:
-    `>>> cliper list-contents --priority highest`
-    output -> `creation date    label    contents      priority
-               ---------------  -------  ----------  ----------
-               2025-07-13       test     <test1>              3
-               2025-07-13       test2    <test2>              2`
+  
+  `>>> cliper list-contents --priority highest`
+  
+  output ->
+  
+  `creation date    label    contents      priority
+    ---------------  -------  ----------  ----------
+    2025-07-13       test     <test1>              3
+    2025-07-13       test2    <test2>              2`
   
   ***NOTE:*** *I do not encourage to save the labels a  the content that will be saved this was just a test*
 
