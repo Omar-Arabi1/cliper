@@ -23,8 +23,8 @@ def save(priority: int, label: Optional[str] = None) -> None:
     
     error_handling(label=label, priority=priority, last_copied_text=last_copied_text, labels=labels, last_copied_texts=last_copied_texts)
 
-    current_time = datetime.datetime.now()
-    current_time_formatted: str = f"{current_time.date()} {current_time.hour}:{current_time.minute}"
+    current_time: datetime = datetime.datetime.now()
+    current_time_formatted: str = str(current_time.date())
 
     new_clipbaord_item: ClipBoardContents = ClipBoardContents(
         clipboard_content=last_copied_text,
