@@ -2,6 +2,7 @@ import click
 import pyperclip
 from typing import Optional
 from colorama import Fore
+import datetime
 
 from helpers.clipboard_contents_model import ClipBoardContents
 from helpers import clipboad_context
@@ -13,19 +14,26 @@ from helpers.error_handling_for_save import error_handling
 def save(priority: int, label: Optional[str] = None) -> None:
     clipboard_contents: dict = clipboad_context.read_json()
     last_copied_text: str = pyperclip.paste()
-    
+    last_copied_texts: list[str] = []
+    labels: list[str] = []
+
     for copied_text in clipboard_contents:
-        last_copied_texts: list[str] = list(clipboard_contents.keys())
-        labels: list[str] = list(clipboard_contents.get(copied_text).values())
-        error_handling(label=label, priority=priority, last_copied_text=last_copied_text, labels=labels, last_copied_texts=last_copied_texts)
+        last_copied_texts.extend(list(clipboard_contents.keys()))
+        labels.extend(list(clipboard_contents.get(copied_text).values()))
     
+    error_handling(label=label, priority=priority, last_copied_text=last_copied_text, labels=labels, last_copied_texts=last_copied_texts)
+
+    current_time = datetime.datetime.now()
+    current_time_formatted: str = f"{current_time.date()} {current_time.hour}:{current_time.minute}"
+
     new_clipbaord_item: ClipBoardContents = ClipBoardContents(
-        clipboard_content=last_copied_text, 
-        label=label, 
-        priority=priority
+        clipboard_content=last_copied_text,
+        label=label,
+        priority=priority,
+        creation_date=current_time_formatted
     )
-    
+
     clipboard_contents.update(new_clipbaord_item.as_dict())
-    
+
     clipboad_context.write_json(data_to_write=clipboard_contents)
     click.echo(Fore.GREEN + 'saved item')
