@@ -14,7 +14,6 @@ from helpers.clipboard_contents_model import ClipBoardContents
 def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
     check_if_empty()
     clipboard_content: dict = clipboad_context.read_json()
-    not_removed_from_clipboard: dict = {}
 
     if all is True:
         clipboad_context.write_json(data_to_write={})
@@ -28,16 +27,9 @@ def remove(label: str, remove_priority: Optional[str], all: bool) -> None:
             clipboard_content.pop(copied_text)
             clipboad_context.write_json(data_to_write=clipboard_content)
             sys.exit()
-        if not remove_priority is None:
-            remove_priority_as_num: int = int(remove_priority)
-            if data.get('priority') != remove_priority_as_num:
-                new_clipbaord_item: ClipBoardContents = ClipBoardContents(
-                    clipboard_content=copied_text,
-                    label=data.get('label'),
-                    priority=data.get('priority'),
-                    creation_date=data.get('creation_date')
-                )
-                not_removed_from_clipboard.update(new_clipbaord_item)
-                clipboad_context.write_json(data_to_write=not_removed_from_clipboard)
-            else:
-                click.echo(Fore.GREEN + f'removed {copied_text}')
+
+    if remove_priority is not None:
+        stuff = filter(lambda data: data[1].get('priority') != int(remove_priority), clipboard_content.items())
+        not_removed_from_clipboard: dict = dict([thing for thing in stuff])
+        clipboad_context.write_json(data_to_write=not_removed_from_clipboard)
+        click.echo(Fore.GREEN + f'removed all sequences that contain {remove_priority} as a priority')
