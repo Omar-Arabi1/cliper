@@ -15,8 +15,7 @@ And of course the basic features of saving, removing, listing, and accessing you
   - [remove command](#remove-command)
   - [search command](#search-command)
 - [installation and setting up](#installation-and-setting-up)
-  - [install.sh](#installsh)
-  - [manual installation](#manual-installation)
+  - [pip and pipx](#pip-and-pipx)
 - [notes](#notes)
 
 ## general use
@@ -100,48 +99,17 @@ If nothing is found with that date, it will give no output.
 Example:  
 `>>> cliper search gee --filter Y-M-D`
 
-***NOTE:*** *this app is only available on linux and macOS not windows*
-## installation and setting up
-### install.sh:
-This program provides an easy installation method using the install.sh script, which is the easiest way to install it.
+## installation and setting up:
+### pip and pipx:
+  this application is available on pip and pipx recommended use pipx
+  
+  `>>> pipx install cliper`
 
-**NOTE:** *This install script is made in bash. If you don't have bash, this script won't work.*  
-**NOTE:** *This script needs sudo to move the file to /usr/local/bin.*  
-**NOTE:** *This script only works if you use zsh or bash shells.*
+  you are ready to go!
 
-Copy and paste this line:  
-`curl -L https://github.com/Omar-Arabi1/cliper/releases/download/v1.3.1/install.sh | bash`
+## notes:
 
-What this script does:
-- Installs the file
-- Makes it executable
-- Moves it to `/usr/local/bin` using sudo
-- Adds it to PATH
-
-After running the script, source the `~/.zshrc` or `~/.bashrc` file depending on your shell.
-
-### manual installation:
-If you don't use zsh or bash or don't trust the script :( use this method.
-
-1. Clone the repo  
-2. Enter the repo's directory and install `shiv` using your preferred package manager  
-3. Run this command in the root directory of the project:  
-   `shiv -c cliper -o cliper.pyz .`  
-4. This will produce a `.pyz` file and two directories: `build` and an info directory inside the `src` directory. You can delete those two directories.  
-5. Make the file executable:  
-   `chmod +x cliper.pyz`
-
-Now you can run it using `./cliper.pyz` if you're in its directory.
-
-To add it to PATH:
-1. Move the file to somewhere like `/usr/local/bin` (requires sudo)
-2. Add this line to your shell config:  
-   `export PATH="/usr/local/bin:$PATH"`  
-   **NOTE:** *The path will only work if you moved it to `/usr/local/bin`.*
-3. Source your `.zshrc` or `.bashrc` based on your shell.
-
-## notes
-All the options given have shorthand versions. To view them, run `-h` or `--help` after any command.
+All the options given have shorthand versions. To view them, run -h or --help after any command.
 
 Please, if you encounter any bugs or issues, create a GitHub issue with as much context as possible.
 
