@@ -41,7 +41,7 @@ back to your clipboard you could override this action by providing a label with 
 
 ## commands
 ### save command:
-  you use this command to save the last thing in your clipboard to the clipboard it takes in a required label
+  you use this command to save the last thing in your clipboard to the clipboard of cliper it takes in a required label
   with the `--label` option and an optional priority with the `--priority` option
   
   the label will be used for all the actions of the application like searching, accessing or removing 
@@ -123,4 +123,7 @@ back to your clipboard you could override this action by providing a label with 
   
   `>>> cliper search gee --filter Y-M-D`
 
-
+## installation and setting up
+### install.sh
+  this program provides an easy way of installation with the install.sh script
+  
