@@ -1,13 +1,10 @@
-Cliper is a cli tool to manage your clipboard history by saving only important things to you rather than having to
-dig through your entire clipboard history
+Cliper is a CLI tool to manage your clipboard history by saving only important things to you rather than having to dig through your entire clipboard history.
 
 It contains features like:
 - fuzzy searching your labels
 - date filtering
 
-and of course the basic features of saving, removing, listing and accessing your clipboard contents
-
----
+And of course the basic features of saving, removing, listing, and accessing your clipboard contents.
 
 ## table of contents:
 - [general use](#general-use)
@@ -18,151 +15,134 @@ and of course the basic features of saving, removing, listing and accessing your
   - [remove command](#remove-command)
   - [search command](#search-command)
 - [installation and setting up](#installation-and-setting-up)
-  - [install.sh](#install.sh)
+  - [install.sh](#installsh)
   - [manual installation](#manual-installation)
 - [notes](#notes)
 
 ## general use
-the main way to use this application is to save the last thing in your clipboard history and add a label to it
-the label will be used to take the actions and you can't repeat the same label twice in the list or the same
-copied text
+The main way to use this application is to save the last thing in your clipboard history and add a label to it.  
+The label will be used to take the actions and you can't repeat the same label twice in the list or the same copied text.
 
-you could also save them with a priority which may help in you listing them sorted by priority it takes in a
-number between 1 (lowest) to 3 (highest)
+You could also save them with a priority which may help in listing them sorted by priority. It takes in a number between 1 (lowest) to 3 (highest).
 
-the text will be saved automatically with a creation date Y-M-D that could also be used to sort by date when listing
-or to filter the fuzzy search results
+The text will be saved automatically with a creation date Y-M-D that could also be used to sort by date when listing or to filter the fuzzy search results.
 
-the rest of the commands like `search`, `remove`, `access` and `list-contents` are all used after adding something to the
-clipboard
+The rest of the commands like `search`, `remove`, `access`, and `list-contents` are all used after adding something to the clipboard.
 
-to access what you have copied you would use the `access` command which by default will put the last thing you entered
-back to your clipboard you could override this action by providing a label with the `--label` option
+To access what you have copied you would use the `access` command which by default will put the last thing you entered back to your clipboard. You could override this action by providing a label with the `--label` option.
 
 ## commands
+
 ### save command:
-  you use this command to save the last thing in your clipboard to the clipboard of cliper it takes in a required label
-  with the `--label` option and an optional priority with the `--priority` option
+You use this command to save the last thing in your clipboard to the clipboard of cliper. It takes in a required label with the `--label` option and an optional priority with the `--priority` option.
 
-  the label will be used for all the actions of the application like searching, accessing or removing
-  so its encouraged to add short labels for ease of use
+The label will be used for all the actions of the application like searching, accessing, or removing, so it's encouraged to add short labels for ease of use.
 
-  the pirority will allow you to sort the listing based on it and it takes only from 1 (lowest) to 3 (highest)
-  1 is the default piroity in case the user doesn't add anything
+The priority will allow you to sort the listing based on it and it takes only from 1 (lowest) to 3 (highest).  
+1 is the default priority in case the user doesn't add anything.
 
-  the program also automatically saves a creation_date which will allow you to sort the listing or to filter
-  the search results by providing it
+The program also automatically saves a creation_date which will allow you to sort the listing or filter the search results by providing it.
 
-  the program doesn't accept duplicate text or labels
+The program doesn't accept duplicate text or labels.
 
-  an example on how it could be used:
-
-  `>>> cliper save --label <label> --priority <priority>`
+Example:  
+`>>> cliper save --label <label> --priority <priority>`
 
 ### list-contents command:
-  you use this command to list all the contents of the application by default it lists the contents at the order
-  they are saved at in the clipboard
+You use this command to list all the contents of the application. By default it lists the contents in the order they were saved in the clipboard.
 
-  you could override this action by providing a way to sort them you have two options for that the
+You could override this action by providing a way to sort them. You have two options:
+- `--date` option to sort by date. It takes in only `oldest` or `newest`
+- `--priority` option to sort by priority. It takes in only `highest` or `lowest`
 
-  - `--date` option to sort by date it takes in only oldest or newest
-  - `--priority` option to sort by priority it takes in only highest or lowest
+You can't enter both. If you do, the one that was entered first will be the one to execute.
 
-  you can't enter both if you do enter both the one that was entered first will be the one to execute
+The data will be printed in a table format.
 
-  the data will be printed in a table format
-
-  an example on how it could be used:
-
-  `>>> cliper list-contents --priority highest`
+Example:  
+`>>> cliper list-contents --priority highest`
 
 ### access command:
-  you use this command to access something you saved in your clipboard, by default it will put the last thing you added
-  to the clipboard back to your actual clipboard, but you could override this action by providing it a label with the
-  `--label` option and providing the exact name of the label
+You use this command to access something you saved in your clipboard. By default, it will put the last thing you added back into your actual clipboard.  
+You can override this action by providing a label with the `--label` option and the exact name of the label.
 
-  if the label provided doesn't exist no output will be given
+If the label provided doesn't exist, no output will be given.
 
-  an example on how it could be used:
-
-  `>>> cliper access --label <label>`
+Example:  
+`>>> cliper access --label <label>`
 
 ### remove command:
-  you use this command to remove something from your clipboard it takes in one of the three
+You use this command to remove something from your clipboard. It takes in one of the three:
+- `--all` option to remove everything at once
+- `--label` option to remove an item by the given label
+- `--remove-priority` to remove all items that have the same priority level you give
 
-  - `--all` option to remove everything at once
-  - `--label` option to remove an item on the given label
-  - `--remove-priority` to remove all items that have the same priority level you give
+You can't use all of these options at once.
 
-  you can't use all of these options at once
+If you enter a label or priority that doesn't exist, the command will give no output.  
+The same applies if you enter something incorrectly.
 
-  if you enter a label or piroity that doesn't exist the command will give no output
-
-  the same could be said if you enter something incorrectly
-
-  an example on how it could be used:
-
-  `>>> cliper remove --all`
+Example:  
+`>>> cliper remove --all`
 
 ### search command:
-  you use this command to fuzzy search the labels in your clipboard you could enter a part of the
-  label and it will give you the most close takes
+You use this command to fuzzy search the labels in your clipboard. You can enter part of the label and it will give you the closest matches.
 
-  it takes in a required query argument which it will search with if it doesn't find anything with the accuracy
-  higher or equal to 80% it will give no output
+It takes in a required query argument to search with. If it doesn't find anything with accuracy ≥ 80%, it will give no output.
 
-  the lowest accuracy it could provide is 80% it doesn't provide any other metadata on what this label
-  has saved or its creation date just the label itself
+The lowest accuracy it could provide is 80%. It doesn't provide any other metadata—just the label itself.
 
-  it takes in an optional `--filter` option it allows you to filter the results on a certain date
-  the date that will be given will be the creation date which you could see when listing your clipboard
-  you have to provide it exactly how it is and in the same format **Y-M-D** if it doesn't find anything with
-  that creation date it will give no output
+It takes an optional `--filter` option to filter the results by a certain date.  
+The date must be the exact creation date shown when listing your clipboard, in this format: **Y-M-D**.
 
-  an example on how it could be used:
+If nothing is found with that date, it will give no output.
 
-  `>>> cliper search gee --filter Y-M-D`
+Example:  
+`>>> cliper search gee --filter Y-M-D`
 
 ## installation and setting up
+
 ### install.sh:
-  this program provides an easy way of installation with the install.sh script and it is the easiest way to install it
+This program provides an easy installation method using the install.sh script, which is the easiest way to install it.
 
-  ***NOTE:*** *this install script is made in bash so if you don't have bash this script won't work*
-  ***NOTE*** *this script needs sudo to move the file to /usr/local/bin*
-  ***NOTE*** *this script only works if you use zsh or bash shells*
+**NOTE:** *This install script is made in bash. If you don't have bash, this script won't work.*  
+**NOTE:** *This script needs sudo to move the file to /usr/local/bin.*  
+**NOTE:** *This script only works if you use zsh or bash shells.*
 
-  all you have to do is copy and past this line ->
+Copy and paste this line:  
+`curl -L https://github.com/Omar-Arabi1/cliper/releases/download/v1.3.1/install.sh | bash`
 
-  `curl -L https://github.com/Omar-Arabi1/cliper/releases/download/v1.3.1/install.sh | bash`
+What this script does:
+- Installs the file
+- Makes it executable
+- Moves it to `/usr/local/bin` using sudo
+- Adds it to PATH
 
-  what this script does:
-  - installs the file
-  - makes it executable
-  - moves it to /usr/local/bin using sudo
-  - adds it to path
-
-  after this script source the ~/.zshrc file or ~/.bashrc files based on your shell
+After running the script, source the `~/.zshrc` or `~/.bashrc` file depending on your shell.
 
 ### manual installation:
-  if you don't use zsh or bash or don't trust the script :( use this way
+If you don't use zsh or bash or don't trust the script :( use this method.
 
-  1. copy the repo
-  2. get into the repo's directory and install shiv which ever way you install dependencies
-  3. run this command in the root directory of the project `shiv -c cliper -o cliper.pyz .`
-  3. this will produce a file which ends in .pyz and two directories build and an info directory inside of src directory you could delete those two directories
-  4. make the file an executable with `chmod +x cliper.pyz`
+1. Clone the repo  
+2. Enter the repo's directory and install `shiv` using your preferred package manager  
+3. Run this command in the root directory of the project:  
+   `shiv -c cliper -o cliper.pyz .`  
+4. This will produce a `.pyz` file and two directories: `build` and an info directory inside the `src` directory. You can delete those two directories.  
+5. Make the file executable:  
+   `chmod +x cliper.pyz`
 
-  you could run it now without adding it to path using `./cliper.pyz` if you are in the directory it is in
+Now you can run it using `./cliper.pyz` if you're in its directory.
 
-  if you want to add it to path follow this
-
-  1. move the file to somewhere like /usr/local/bin (requires sudo permissions)
-  2. add this line to path export PATH="/usr/local/bin:$PATH" ***NOTE*** *the path will only work if yo umoved it to /usr/local/bin*
-  3. source your .zshrc or .bashrc based on what you use
+To add it to PATH:
+1. Move the file to somewhere like `/usr/local/bin` (requires sudo)
+2. Add this line to your shell config:  
+   `export PATH="/usr/local/bin:$PATH"`  
+   **NOTE:** *The path will only work if you moved it to `/usr/local/bin`.*
+3. Source your `.zshrc` or `.bashrc` based on your shell.
 
 ## notes
-all the options given at the top have shorthands to view all of them run `-h` or `--help` after the command you want to run
+All the options given have shorthand versions. To view them, run `-h` or `--help` after any command.
 
-please if you encounter any bugs or issues send an issue on github with as much context as possible
+Please, if you encounter any bugs or issues, create a GitHub issue with as much context as possible.
 
-thanks for downloading this tool I hope you enjoy
+Thanks for downloading this tool. I hope you enjoy it!
