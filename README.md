@@ -100,8 +100,8 @@ If nothing is found with that date, it will give no output.
 Example:  
 `>>> cliper search gee --filter Y-M-D`
 
+***NOTE:*** *this app is only available on linux and macOS not windows*
 ## installation and setting up
-
 ### install.sh:
 This program provides an easy installation method using the install.sh script, which is the easiest way to install it.
 
