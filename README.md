@@ -97,11 +97,11 @@ The date must be the exact creation date shown when listing your clipboard, in t
 If nothing is found with that date, it will give no output.
 
 Example:  
-`>>> cliper search gee --filter Y-M-D`
+`>>> cliper search <query> --filter <Y-M-D>`
 
 ## installation and setting up:
 ### pip and pipx:
-  this application is available on pip and pipx recommended use pipx
+  this application is available on pip and pipx, recommended use pipx
   
   `>>> pipx install cliper`
 
